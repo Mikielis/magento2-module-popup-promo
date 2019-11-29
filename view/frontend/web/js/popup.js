@@ -33,15 +33,16 @@ define([
             });
 
             /** Display */
+            var obj = this;
             if ($.cookie(this.cookieName) != 1) {
                 if (options.displaySettings == 'after_x_seconds') {
                     setTimeout(function () {
                         $(options.container).fadeIn();
-                        this.cookie();
+                        obj.cookie();
                     }, parseInt(options.displayDelay) * 1000);
                 } else if (options.displaySettings == 'before_closing') {
                     $(options.container).fadeIn();
-                    this.cookie();
+                    obj.cookie();
                 }
             }
         }
