@@ -1,0 +1,63 @@
+
+.mikielis-promo-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: @color-white;
+  border: 1px @color-gray80 solid;
+  box-shadow: 3px 3px 3px @color-gray80;
+  -moz-box-shadow: 3px 3px 3px @color-gray80;
+  -webkit-box-shadow: 3px 3px 3px @color-gray80;
+  z-index: 1000;
+  .close {
+    text-align: right;
+    float: right;;
+    padding: 2px 5px;
+    background: @color-gray40;
+    color: @color-white;
+    cursor: pointer;
+  }
+  .coupon {
+    width: 70%;
+    margin: 10px auto;
+    input {
+      float: left;
+      width: 60%;
+    }
+    button {
+      float: left;
+      width: 35%;
+      margin-left: 5%;
+    }
+  }
+  .clear {
+    clear: both;
+  }
+  .regulations {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px @color-gray80 solid;
+    font-size: 0.8em;
+    color: @color-gray40;
+    a {
+      color: @color-gray40;
+      text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .coupon {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .mikielis-promo-popup {
+    left: 30%;
+    transform: translate(-25%, -80%);
+  }
+}

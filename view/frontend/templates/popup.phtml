@@ -1,0 +1,52 @@
+<?php
+/**
+ * @var $block Mikielis\PopupPromo\Block\Popup
+ */
+?>
+
+<?php if ($block->isModuleEnabled() && $block->getCouponCode()): ?>
+    <div class="mikielis-promo-popup" id="mikielis-promo-popup">
+        <span class="close">X</span>
+        <div class="promo-content">
+            <div class="promo-block">
+                <?= $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId($block->getBlockId())->toHtml(); ?>
+            </div>
+
+            <div class="coupon">
+                <input type="text" value="<?= $block->getCouponCode() ?>">
+                <button class="action primary" data-copied="<?= __('Copied') ?>"><?= __('Copy') ?></button>
+            </div>
+
+            <br class="clear" />
+
+            <?php if ($block->getRequlationsText()): ?>
+                <div class="regulations">
+                    <?= $block->getRequlationsText() ?>
+                    <br />
+                    <?= __('Ream more') ?> <a href="<?= $block->getPageUrl() ?>"><?= __('here') ?></a>.
+                </div>
+            <?php endif ?>
+        </div>
+    </div>
+
+    <?php if ($block->getCustomCss()): ?>
+        <style>
+            <?= $block->getCustomCss() ?>
+        </style>
+    <?php endif ?>
+
+    <script type="text/x-magento-init">
+        {
+            "#mikielis-promo-popup": {
+                "popupPromo": {
+                    "container": "#mikielis-promo-popup",
+                    "button": "#mikielis-promo-popup button",
+                    "code": "#mikielis-promo-popup input",
+                    "close": "#mikielis-promo-popup .close",
+                    "displaySettings": "<?= $block->getDisplaySettings() ?>",
+                    "displayDelay": "<?= $block->getDisplayDelay() ?>"
+                }
+            }
+        }
+    </script>
+<?php endif ?>
