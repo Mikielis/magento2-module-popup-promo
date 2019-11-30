@@ -40,7 +40,7 @@ define([
                         $(options.container).fadeIn();
                         obj.cookie();
                     }, parseInt(options.displayDelay) * 1000);
-                } else if (options.displaySettings == 'before_closing') {
+                } else if (options.displaySettings == 'immediately') {
                     $(options.container).fadeIn();
                     obj.cookie();
                 }
